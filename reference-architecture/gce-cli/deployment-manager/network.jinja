@@ -140,3 +140,17 @@ resources:
     targetTags:
     - {{ properties['prefix'] }}-infra-node
   type: compute.v1.firewall
+- name: {{ properties['prefix'] }}-default-allow-internal
+  properties:
+    allowed:
+    - IPProtocol: udp
+      ports:
+      - '0-65535'
+    - IPProtocol: tcp
+      ports:
+      - '0-65535'
+    description: ''
+    network: $(ref.{{ properties['prefix'] }}-network.selfLink)
+    sourceRanges:
+    - 10.128.0.0/9
+  type: compute.v1.firewall
