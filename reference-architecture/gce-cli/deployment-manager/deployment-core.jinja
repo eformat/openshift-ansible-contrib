@@ -27,13 +27,7 @@ resources:
       preemptible: false
     serviceAccounts:
     - scopes:
-      - https://www.googleapis.com/auth/cloud.useraccounts.readonly
-      - https://www.googleapis.com/auth/compute
-      - https://www.googleapis.com/auth/devstorage.read_write
-      - https://www.googleapis.com/auth/logging.write
-      - https://www.googleapis.com/auth/monitoring.write
-      - https://www.googleapis.com/auth/service.management.readonly
-      - https://www.googleapis.com/auth/servicecontrol
+        - https://www.googleapis.com/auth/cloud-platform
     tags:
       items:
       - {{ properties['prefix'] }}-bastion
@@ -48,9 +42,12 @@ resources:
       disks:
       - autoDelete: true
         boot: true
+        deviceName: persistent-disk-0
+        index: 0
+        interface: SCSI
         initializeParams:
           diskSizeGb: {{ properties['master_boot_disk_size'] }}
-          diskType: pd-ssd
+          diskType: zones/{{ properties['zone'] }}/diskTypes/pd-ssd
           sourceImage: global/images/{{ properties['gold_image'] }}
         mode: READ_WRITE
         type: PERSISTENT
@@ -67,13 +64,7 @@ resources:
         preemptible: false
       serviceAccounts:
       - scopes:
-        - https://www.googleapis.com/auth/cloud.useraccounts.readonly
-        - https://www.googleapis.com/auth/compute
-        - https://www.googleapis.com/auth/devstorage.read_write
-        - https://www.googleapis.com/auth/logging.write
-        - https://www.googleapis.com/auth/monitoring.write
-        - https://www.googleapis.com/auth/service.management.readonly
-        - https://www.googleapis.com/auth/servicecontrol
+        - https://www.googleapis.com/auth/cloud-platform
       tags:
         items:
         - {{ properties['prefix'] }}
@@ -87,9 +78,12 @@ resources:
       disks:
       - autoDelete: true
         boot: true
+        deviceName: persistent-disk-0
+        index: 0
+        interface: SCSI
         initializeParams:
           diskSizeGb: {{ properties['node_boot_disk_size'] }}
-          diskType: pd-ssd
+          diskType: zones/{{ properties['zone'] }}/diskTypes/pd-ssd
           sourceImage: global/images/{{ properties['gold_image'] }}
         mode: READ_WRITE
         type: PERSISTENT
@@ -106,13 +100,7 @@ resources:
         preemptible: false
       serviceAccounts:
       - scopes:
-        - https://www.googleapis.com/auth/cloud.useraccounts.readonly
-        - https://www.googleapis.com/auth/compute
-        - https://www.googleapis.com/auth/devstorage.read_write
-        - https://www.googleapis.com/auth/logging.write
-        - https://www.googleapis.com/auth/monitoring.write
-        - https://www.googleapis.com/auth/service.management.readonly
-        - https://www.googleapis.com/auth/servicecontrol
+        - https://www.googleapis.com/auth/cloud-platform
       tags:
         items:
         - {{ properties['prefix'] }}
@@ -126,9 +114,12 @@ resources:
       disks:
       - autoDelete: true
         boot: true
+        deviceName: persistent-disk-0
+        index: 0
+        interface: SCSI
         initializeParams:
           diskSizeGb: {{ properties['node_boot_disk_size'] }}
-          diskType: pd-ssd
+          diskType: zones/{{ properties['zone'] }}/diskTypes/pd-ssd
           sourceImage: global/images/{{ properties['gold_image'] }}
         mode: READ_WRITE
         type: PERSISTENT
@@ -145,13 +136,7 @@ resources:
         preemptible: false
       serviceAccounts:
       - scopes:
-        - https://www.googleapis.com/auth/cloud.useraccounts.readonly
-        - https://www.googleapis.com/auth/compute
-        - https://www.googleapis.com/auth/devstorage.read_write
-        - https://www.googleapis.com/auth/logging.write
-        - https://www.googleapis.com/auth/monitoring.write
-        - https://www.googleapis.com/auth/service.management.readonly
-        - https://www.googleapis.com/auth/servicecontrol
+        - https://www.googleapis.com/auth/cloud-platform
       tags:
         items:
         - {{ properties['prefix'] }}
