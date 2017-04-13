@@ -47,7 +47,7 @@ resources:
         interface: SCSI
         initializeParams:
           diskSizeGb: {{ properties['master_boot_disk_size'] }}
-          diskType: zones/{{ properties['zone'] }}/diskTypes/pd-ssd
+          diskType: pd-ssd
           sourceImage: global/images/{{ properties['gold_image'] }}
         mode: READ_WRITE
         type: PERSISTENT
@@ -83,7 +83,7 @@ resources:
         interface: SCSI
         initializeParams:
           diskSizeGb: {{ properties['node_boot_disk_size'] }}
-          diskType: zones/{{ properties['zone'] }}/diskTypes/pd-ssd
+          diskType: pd-ssd
           sourceImage: global/images/{{ properties['gold_image'] }}
         mode: READ_WRITE
         type: PERSISTENT
@@ -119,7 +119,7 @@ resources:
         interface: SCSI
         initializeParams:
           diskSizeGb: {{ properties['node_boot_disk_size'] }}
-          diskType: zones/{{ properties['zone'] }}/diskTypes/pd-ssd
+          diskType: pd-ssd
           sourceImage: global/images/{{ properties['gold_image'] }}
         mode: READ_WRITE
         type: PERSISTENT
