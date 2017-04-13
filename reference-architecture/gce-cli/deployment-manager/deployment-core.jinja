@@ -145,7 +145,6 @@ resources:
 - name: {{ properties['prefix'] }}-master
   properties:
     baseInstanceName: {{ properties['prefix'] }}-master
-    instanceTemplate: $(ref.{{ properties['prefix'] }}-master-template.selfLink)
     namedPorts:
     - name: {{ properties['prefix'] }}-web-console
       port: {{ properties['console_port'] }}
@@ -157,7 +156,6 @@ resources:
 - name: {{ properties['prefix'] }}-infra-node
   properties:
     baseInstanceName: {{ properties['prefix'] }}-infra-node
-    instanceTemplate: $(ref.{{ properties['prefix'] }}-infra-node-template.selfLink)
     targetPools:
     - $(ref.{{ properties['prefix'] }}-router-network-lb-pool.selfLink)
     targetSize: {{ properties['infra_node_instance_group_size'] }}
@@ -166,7 +164,6 @@ resources:
 - name: {{ properties['prefix'] }}-node
   properties:
     baseInstanceName: {{ properties['prefix'] }}-node
-    instanceTemplate: $(ref.{{ properties['prefix'] }}-node-template.selfLink)
     targetSize: {{ properties['node_instance_group_size'] }}
     zone: {{ properties['zone'] }}
   type: compute.v1.instanceGroupManager
