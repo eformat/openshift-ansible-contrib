@@ -401,7 +401,7 @@ gcloud --project "$GCLOUD_PROJECT" compute ssh "cloud-user@${OCP_PREFIX}-bastion
         git clone https://github.com/eformat/openshift-ansible-contrib.git ~/openshift-ansible-contrib;
     fi
     pushd ~/openshift-ansible-contrib/reference-architecture/gce-ansible;
-    ansible-playbook -e openshift_disable_check=disk_availability,memory_availability -e rhsm_user=${RH_USERNAME} -e rhsm_password="${RH_PASSWORD}" -e rhsm_pool=${RH_POOL_ID} -e @~/ansible-config.yml playbooks/openshift-install.yaml;
+    ansible-playbook -e openshift_disable_check=disk_availability,memory_availability,docker_storage -e rhsm_user=${RH_USERNAME} -e rhsm_password="${RH_PASSWORD}" -e rhsm_pool=${RH_POOL_ID} -e @~/ansible-config.yml playbooks/openshift-install.yaml;
 '"
 
 echo
